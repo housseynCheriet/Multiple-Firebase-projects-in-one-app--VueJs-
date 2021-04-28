@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/cuqhcwcr/public_html/sjs/ace-builds-master/pro/
+    - /bin/cp -R * $DEPLOYPATH
