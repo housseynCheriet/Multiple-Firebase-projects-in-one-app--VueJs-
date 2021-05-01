@@ -45,8 +45,7 @@
     
     methods:{
       floatingBtn(){
-        console.log("+++")
-         document.querySelector('.social-panel-container').classList.toggle('visible')
+        document.querySelector('.social-panel-container').classList.toggle('visible')
       },
        closeBtn(){
          document.querySelector('.social-panel-container').classList.remove('visible')
@@ -93,7 +92,7 @@
 
 /* SOCIAL PANEL CSS */
 .social-panel-container {
-  z-index: 10;
+  z-index: 20;
   position: fixed;
   right: 0;
   bottom: 80px;
