@@ -1,11 +1,10 @@
-<!--<template>
-  <div id="app">
-   <h1>++++</h1>
-  </div>
-</template>-->
 <template>
 <div>
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-blue ftco-navbar-light" id="ftco-navbar" style="background: darkcyan;height: 60px;position: relative;">
+
+<GetInTouch v-if="calledFromIframe" />
+
+
+   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-blue ftco-navbar-light" id="ftco-navbar" style="background: darkcyan;height: 60px;position: relative;">
 <div class="container">
 <a class="navbar-brand" href="/app2/2" style="
     position: absolute;
@@ -78,12 +77,16 @@
 //import {db} from '../firestore' 
 
 
-
+ import GetInTouch from './GetInTouch'
 
 var firebaseAuth=firebase.auth(firebase.apps[3]); 
 
    export default {
       name: "Page4",
+      
+   components: {
+      GetInTouch
+    } ,
    
    data: function() {
     /*  var num,str=this.$route.path.substring(this.$route.path.lastIndexOf("/app2")+6);console.log(num);
@@ -103,6 +106,7 @@ return {
       passwordReg: "",
       confirmReg: "",
       emptyFields: false,
+      calledFromIframe: window.location == window.parent.location,
       
 
       auth:firebaseAuth.currentUser,

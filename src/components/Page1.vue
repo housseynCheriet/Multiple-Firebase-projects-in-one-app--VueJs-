@@ -1,6 +1,9 @@
 <template>
 <div>
 
+<GetInTouch v-if="calledFromIframe" />
+
+
    <div class="login-page">
       <transition name="fade">
          <div v-if="!registerActive" class="wallpaper-login"></div>
@@ -67,20 +70,28 @@
   import firebase from 'firebase'
 import {db} from '../firestore'
 
-
+ import GetInTouch from './GetInTouch'
 console.log(db);
 var firebaseAuth=firebase.auth(firebase.apps[0]);
 //var myFormLog = document.getElementById("myFormLog"),
 //myFormReg = document.getElementById("myFormReg");
    export default {
       name: "Page1",
-   
+      
+   components: {
+      GetInTouch
+    } ,
    data: function() {
 /*var num,str=this.$route.path.substring(this.$route.path.lastIndexOf("/app2")+6);console.log(num);
       if(typeof (num=Number(str))=="number")
       firebaseAuth=firebase.auth(firebase.apps[num-1]);
       else
        firebaseAuth=firebase.auth(firebase.apps[0]);  */
+     var url = (window.location != window.parent.location)
+            ? 'no'
+            : 'yes';
+
+     console.log(url);
      
 return {
       registerActive: false,
@@ -90,7 +101,7 @@ return {
       passwordReg: "",
       confirmReg: "",
       emptyFields: false,
-
+      calledFromIframe: window.location == window.parent.location,
 
       auth:firebaseAuth.currentUser,
 
