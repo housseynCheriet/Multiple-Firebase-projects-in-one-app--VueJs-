@@ -20,7 +20,7 @@
 <a class="navbar-brand" href="/app2/1">Home</a>
 <div id="ftco-nav">
 <ul class="navbar-nav ml-auto">
-<li class="nav-item cta"><a href="contact.html" class="nav-link"><span @click="logout" v-if="auth">Logout</span></a></li>
+<li class="nav-item cta"><a href="contact.html" class="nav-link"><span @click="logout" v-if="auth" style="cursor: pointer;">Logout</span></a></li>
 </ul>
 </div>
 </div>
